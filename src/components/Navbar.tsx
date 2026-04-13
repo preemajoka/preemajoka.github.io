@@ -61,7 +61,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
               <a href="https://linkedin.com/in/preeyansh-arora-majoka" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-[var(--accent-blue)] transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="https://github.com/pree1010" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-[var(--fg)] transition-colors">
+              <a href="https://github.com/preemajoka" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-[var(--fg)] transition-colors">
                 <Github size={20} />
               </a>
             </div>
