@@ -160,6 +160,27 @@ export const projects: Project[] = [
     completionDate: '2026-05-01',
     videoUrl: 'https://www.youtube.com/embed/qni2ZHnxNtM',
     posterUrl: '/Capstone_Poster.pdf',
+    reflection: {
+      title: "Professional Reflection",
+      sections: [
+        {
+          title: "From Pitch to Prototype",
+          content: "Proposing this capstone project was a unique privilege. Having interned at ARTMS, I experienced firsthand the operational bottlenecks caused by jammed radioactive capsules. Pitching this exact industrial problem to my peers and eventually leading the manufacturing strategy allowed me to see a real industrial challenge transform from a conceptual pitch into a fully functional Minimum Viable Product. Watching our bench scale prototype successfully track capsules using the housings I designed was the most rewarding moment of my academic career."
+        },
+        {
+          title: "The Realities of the Design Process",
+          content: "This journey fundamentally changed how I view mechanical design and my own technical growth. In early coursework, it is incredibly easy to draft complex geometries in SolidWorks and assume they can simply be manufactured. Stepping into the role of Manufacturing Lead forced me to confront the physical realities of fabrication. I had to learn how thin walled features, tool paths, and material behaviors dictate what is actually possible on the machine shop floor. Transitioning from conceptual design to dealing with the strict machinability constraints of Polycarbonate taught me that true engineering is an iterative loop between the drafting table and the physical prototype."
+        },
+        {
+          title: "Cross Disciplinary Collaboration",
+          content: "Seeing our MVP come to life reinforced that a successful system relies on uncompromising attention to detail and intense teamwork. In mechatronic product development, mechanical and electrical systems must integrate perfectly. If my dimensional tolerances for the Sensing Coupler were even slightly off, the sensor arrays designed by the electrical team would be rendered entirely useless. This project demanded deep diligence to ensure that GD&T callouts were accurate, materials were correctly selected for dynamic loading, and the physical architecture fully supported the software goals."
+        },
+        {
+          title: "Engineering Impact and Responsibility",
+          content: "Working within the radiopharmaceutical domain highlighted the immense responsibility that manufacturing engineers carry. The tracking system we designed directly impacts ALARA worker exposure limits and the overall efficiency of medical isotope production. This project reinforced my core belief that as mechanical designers, our primary responsibility is to create robust and reliable systems that protect human operators and ensure the seamless delivery of critical medical technologies to the public."
+        }
+      ]
+    },
     detailedSections: [
       {
         title: "The Objective: Why We Built It",
