@@ -851,6 +851,35 @@ export default function ProjectPage() {
                 </div>
               );
             })}
+            {project.reflection && (
+              <div className="grid grid-cols-1 lg:grid-cols-24 gap-12 py-12">
+                <div className="lg:col-span-8" />
+                <div className="lg:col-span-16">
+                  <section className="card-mechanical overflow-hidden group cursor-chomper transition-colors duration-300">
+                    <div className="p-10 bg-[var(--card-bg)] border-b-2 border-[var(--border)] transition-colors">
+                      <div className="flex items-center gap-4">
+                        <div className="p-3 bg-[var(--card-bg)] border-2 border-[var(--border)] shadow-[4px_4px_0px_0px_var(--border)]">
+                          <FileText className="w-6 h-6 text-[var(--accent-blue)]" />
+                        </div>
+                        <h2 className="text-2xl font-black uppercase tracking-tight transition-colors">{project.reflection.title}</h2>
+                      </div>
+                    </div>
+                    <div className="p-10 transition-colors duration-300 space-y-12">
+                      {project.reflection.sections.map((section, idx) => (
+                        <div key={idx} className="space-y-4">
+                          <h3 className="text-lg font-black uppercase tracking-tight text-[var(--fg)] border-b-2 border-[var(--border)] pb-2">
+                            {section.title}
+                          </h3>
+                          <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover:text-[var(--accent-yellow)] transition-colors">
+                            {section.content}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Sidebar Column (3 columns) */}
