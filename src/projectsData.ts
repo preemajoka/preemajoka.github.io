@@ -69,6 +69,10 @@ export interface Project {
   imageFit?: 'cover' | 'contain';
   imageBg?: string;
   posterUrl?: string;
+    reflection?: {
+      title: string;
+      sections: { title: string; content: string }[];
+    };
   detailedSections?: ProjectSection[];
 }
 
