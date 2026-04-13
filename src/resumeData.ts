@@ -4,7 +4,7 @@ export const resumeData = {
     phone: "(250) 899-5501",
     email: "preeyansh5@gmail.com",
     linkedin: "linkedin.com/in/preeyansh-arora-majoka",
-    github: "https://github.com/preemajoka"
+    github: "github.com/preemajoka"
   },
   education: {
     school: "University of British Columbia",
