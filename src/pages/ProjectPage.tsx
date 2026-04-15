@@ -209,7 +209,7 @@ function DetailedFSMVisualization({ data }: { data: any }) {
   }, [isPlaying, baseIdx, appIdx]);
 
   return (
-    <div className="relative p-6 bg-white dark:bg-black border-4 border-[var(--border)] shadow-[8px_8px_0px_0px_var(--pixel-dot)] min-h-[700px] flex flex-col gap-8 font-mono overflow-hidden">
+    <div className="relative p-6 bg-[var(--card-bg)] border-4 border-[var(--border)] shadow-[8px_8px_0px_0px_var(--pixel-dot)] min-h-[700px] flex flex-col gap-8 font-mono overflow-hidden">
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" 
         style={{ backgroundImage: 'radial-gradient(circle, var(--fg) 1px, transparent 1px)', backgroundSize: '20px 20px' }} 
@@ -224,10 +224,10 @@ function DetailedFSMVisualization({ data }: { data: any }) {
           </div>
         </div>
         <div className="flex gap-4">
-          <button onClick={() => setIsPlaying(!isPlaying)} className="p-2 bg-white dark:bg-black border-2 border-[var(--border)] hover:text-[var(--hover-accent)] transition-all active:translate-y-1">
+          <button onClick={() => setIsPlaying(!isPlaying)} className="p-2 bg-[var(--card-bg)] border-2 border-[var(--border)] hover:text-[var(--hover-accent)] transition-all active:translate-y-1">
             {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
           </button>
-          <button onClick={() => { setBaseIdx(0); setAppIdx(0); }} className="p-2 bg-white dark:bg-black border-2 border-[var(--border)] hover:text-[var(--accent-blue)] transition-all active:translate-y-1">
+          <button onClick={() => { setBaseIdx(0); setAppIdx(0); }} className="p-2 bg-[var(--card-bg)] border-2 border-[var(--border)] hover:text-[var(--accent-blue)] transition-all active:translate-y-1">
             <RotateCcw className="w-5 h-5" />
           </button>
         </div>
@@ -851,6 +851,7 @@ export default function ProjectPage() {
                 </div>
               );
             })}
+
             {project.reflection && (
               <div className="grid grid-cols-1 lg:grid-cols-24 gap-12 py-12">
                 <div className="lg:col-span-8" />
