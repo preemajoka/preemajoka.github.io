@@ -666,7 +666,6 @@ export default function ProjectPage() {
                       </h2>
                       <div className="h-1 w-12 md:w-20 bg-[var(--hover-accent)]" />
                     </div>
-                    <div className="flex gap-3">
                   </motion.div>
                 </div>
               </div>
