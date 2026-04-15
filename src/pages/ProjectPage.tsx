@@ -667,10 +667,6 @@ export default function ProjectPage() {
                       <div className="h-1 w-12 md:w-20 bg-[var(--hover-accent)]" />
                     </div>
                     <div className="flex gap-3">
-                      {[Array(5)].map((_, i) => (
-                        <div key={i} className="w-2 h-2 bg-[var(--border)] opacity-20" />
-                      ))}
-                    </div>
                   </motion.div>
                 </div>
               </div>
