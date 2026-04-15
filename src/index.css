@@ -207,15 +207,85 @@
   );
 }
 
-/* Pacman Dot Animation */
-.pacman-dot {
-  @apply absolute w-2 h-2 bg-[var(--fg)] top-1/2 -translate-y-1/2;
-  animation: eat-dot 2s linear infinite;
+/* Pacman Animation */
+.pacman-container {
+  @apply absolute bottom-12 left-0 w-full h-10 pointer-events-none overflow-hidden;
 }
 
-@keyframes eat-dot {
-  from { right: -20px; }
-  to { right: 100%; }
+.pacman {
+  @apply absolute w-8 h-8 bg-[#FFFF00] rounded-full top-1;
+  animation: pacman-move 12s linear infinite;
+  z-index: 2;
+}
+
+.pacman::after {
+  content: '';
+  @apply absolute right-0 top-0 w-0 h-0 border-[16px] border-transparent;
+  border-right-color: var(--bg);
+  animation: pacman-mouth 0.3s ease infinite;
+}
+
+@keyframes pacman-mouth {
+  0%, 100% { border-right-color: transparent; }
+  50% { border-right-color: var(--bg); }
+}
+
+.ghost {
+  @apply absolute w-8 h-9 top-0 rounded-t-full;
+  animation: pacman-move 12s linear infinite;
+  z-index: 1;
+}
+
+.ghost::before, .ghost::after {
+  content: '';
+  @apply absolute bg-white w-2.5 h-3 rounded-full top-2;
+}
+
+.ghost::before { left: 4px; }
+.ghost::after { left: 16px; }
+
+.ghost-pupil {
+  @apply absolute bg-blue-800 w-1.5 h-1.5 rounded-full top-3;
+  z-index: 3;
+}
+.ghost-pupil-left { left: 6px; }
+.ghost-pupil-right { left: 18px; }
+
+.ghost-cyan { 
+  background: #00FFFF;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.ghost-orange { 
+  background: #FFB852;
+  box-shadow: 0 0 15px rgba(255, 184, 82, 0.4);
+}
+
+/* Ghost legs */
+.ghost-legs {
+  @apply absolute bottom-0 left-0 w-full h-2;
+  background-image: linear-gradient(90deg, transparent 25%, currentColor 25%, currentColor 50%, transparent 50%, transparent 75%, currentColor 75%);
+  background-size: 8px 100%;
+}
+
+.pacman-food-container-inner {
+  @apply absolute inset-0;
+  animation: food-clip 12s linear infinite;
+}
+
+.pacman-food {
+  @apply absolute w-1.5 h-1.5 bg-zinc-400 rounded-full top-4;
+  z-index: 0;
+}
+
+@keyframes pacman-move {
+  0% { left: -10%; }
+  100% { left: 110%; }
+}
+
+@keyframes food-clip {
+  0%, 8.33% { clip-path: inset(0 0 0 0); }
+  91.66%, 100% { clip-path: inset(0 0 0 100%); }
 }
 
 @keyframes bounce-x {
