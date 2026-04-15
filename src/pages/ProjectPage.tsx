@@ -36,11 +36,11 @@ function StepCard({ step, idx }: any) {
         delay: idx * 0.1,
         layout: { type: 'spring', damping: 25, stiffness: 200 }
       }}
-      className={`relative flex flex-col md:flex-row gap-4 md:gap-8 p-6 bg-[var(--card-bg)] border-2 border-[var(--border)] shadow-[4px_4px_0px_0px_var(--border)] hover:shadow-[6px_6px_0px_0px_var(--accent-yellow)] transition-all group/step overflow-hidden ${
+      className={`relative flex flex-col md:flex-row gap-4 md:gap-8 p-6 bg-[var(--card-bg)] border-2 border-[var(--border)] shadow-[4px_4px_0px_0px_var(--border)] hover:shadow-[6px_6px_0px_0px_var(--hover-accent)] transition-all group/step overflow-hidden ${
         activeImageIdx !== null ? 'min-h-[500px] md:min-h-[600px]' : 'min-h-0'
       }`}
     >
-      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[var(--fg)] text-[var(--bg)] flex items-center justify-center font-black text-lg z-10 group-hover/step:bg-[var(--accent-yellow)] group-hover/step:text-black transition-colors">
+      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[var(--fg)] text-[var(--bg)] flex items-center justify-center font-black text-lg z-10 group-hover/step:bg-[var(--hover-accent)] group-hover/step:text-black transition-colors">
         {idx + 1}
       </div>
       
@@ -52,14 +52,14 @@ function StepCard({ step, idx }: any) {
           {hasImages && (
             <button 
               onClick={() => setActiveImageIdx(0)}
-              className="p-2 bg-[var(--card-bg)] border-2 border-[var(--border)] hover:border-[var(--accent-yellow)] hover:text-[var(--accent-yellow)] transition-all shadow-[2px_2px_0px_0px_var(--border)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+              className="p-2 bg-[var(--card-bg)] border-2 border-[var(--border)] hover:border-[var(--hover-accent)] hover:text-[var(--hover-accent)] transition-all shadow-[2px_2px_0px_0px_var(--border)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
               title="View Technical Media"
             >
               <ArrowRight className="w-4 h-4" />
             </button>
           )}
         </div>
-        <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover/step:text-[var(--accent-yellow)] transition-colors">
+        <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover/step:text-[var(--hover-accent)] transition-colors">
           {step.description}
         </p>
       </div>
@@ -85,7 +85,7 @@ function StepCard({ step, idx }: any) {
             {step.images.length > 1 && (
               <button 
                 onClick={() => setActiveImageIdx((activeImageIdx + 1) % step.images.length)}
-                className="absolute bottom-4 right-4 z-30 p-2 bg-[var(--card-bg)]/80 backdrop-blur-md border-2 border-[var(--border)] hover:text-[var(--accent-yellow)] transition-colors shadow-[4px_4px_0px_0px_var(--border)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+                className="absolute bottom-4 right-4 z-30 p-2 bg-[var(--card-bg)]/80 backdrop-blur-md border-2 border-[var(--border)] hover:text-[var(--hover-accent)] transition-colors shadow-[4px_4px_0px_0px_var(--border)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
               >
                 <ArrowRight className="w-5 h-5" />
               </button>
@@ -126,7 +126,7 @@ function FSMVisualization({ steps }: { steps: { id: string; label: string; descr
           <span className="text-[10px] font-mono font-black text-zinc-400 uppercase tracking-widest">PLC RUNTIME: ACTIVE</span>
         </div>
         <div className="flex gap-2">
-          <button onClick={() => setIsPlaying(!isPlaying)} className="p-1 hover:text-[var(--accent-yellow)] transition-colors">
+          <button onClick={() => setIsPlaying(!isPlaying)} className="p-1 hover:text-[var(--hover-accent)] transition-colors">
             {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
           </button>
           <button onClick={() => setActiveIdx(0)} className="p-1 hover:text-[var(--accent-blue)] transition-colors">
@@ -224,7 +224,7 @@ function DetailedFSMVisualization({ data }: { data: any }) {
           </div>
         </div>
         <div className="flex gap-4">
-          <button onClick={() => setIsPlaying(!isPlaying)} className="p-2 bg-white dark:bg-black border-2 border-[var(--border)] hover:text-[var(--accent-yellow)] transition-all active:translate-y-1">
+          <button onClick={() => setIsPlaying(!isPlaying)} className="p-2 bg-white dark:bg-black border-2 border-[var(--border)] hover:text-[var(--hover-accent)] transition-all active:translate-y-1">
             {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
           </button>
           <button onClick={() => { setBaseIdx(0); setAppIdx(0); }} className="p-2 bg-white dark:bg-black border-2 border-[var(--border)] hover:text-[var(--accent-blue)] transition-all active:translate-y-1">
@@ -321,7 +321,7 @@ function DetailedFSMVisualization({ data }: { data: any }) {
             <motion.div 
               initial={{ opacity: 0, pathLength: 0 }}
               animate={{ opacity: 1, pathLength: 1 }}
-              className="absolute top-[45%] left-[45%] w-[10%] h-[2px] border-b-2 border-dashed border-[var(--accent-yellow)] z-20"
+              className="absolute top-[45%] left-[45%] w-[10%] h-[2px] border-b-2 border-dashed border-[var(--hover-accent)] z-20"
             />
           )}
           {/* App 5 -> Base 3 */}
@@ -329,7 +329,7 @@ function DetailedFSMVisualization({ data }: { data: any }) {
             <motion.div 
               initial={{ opacity: 0, pathLength: 0 }}
               animate={{ opacity: 1, pathLength: 1 }}
-              className="absolute top-[85%] left-[45%] w-[10%] h-[2px] border-b-2 border-dashed border-[var(--accent-yellow)] z-20"
+              className="absolute top-[85%] left-[45%] w-[10%] h-[2px] border-b-2 border-dashed border-[var(--hover-accent)] z-20"
             />
           )}
         </div>
@@ -374,7 +374,7 @@ export default function ProjectPage() {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen"
+      className="min-h-screen dynamic-theme-container"
     >
       {/* Hero Header */}
       <div 
@@ -463,20 +463,20 @@ export default function ProjectPage() {
                     </div>
                   </div>
                   <div className="p-10 transition-colors duration-300">
-                    <p className="text-zinc-500 leading-relaxed text-xl font-medium group-hover:text-[var(--accent-yellow)] transition-colors mb-12">
+                    <p className="text-zinc-500 leading-relaxed text-xl font-medium group-hover:text-[var(--hover-accent)] transition-colors mb-12">
                       {project.subtitle}
                     </p>
                     
                     <div className="grid grid-cols-1 gap-8">
                       <div className="space-y-4">
                         <h3 className="text-xs font-black uppercase tracking-widest text-[var(--fg)] border-b-2 border-[var(--border)] pb-2">Technical Focus</h3>
-                        <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover:text-[var(--accent-yellow)]/80 transition-colors">
+                        <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover:text-[var(--hover-accent)]/80 transition-colors">
                           {project.approach}
                         </p>
                       </div>
                       <div className="space-y-4">
                         <h3 className="text-xs font-black uppercase tracking-widest text-[var(--fg)] border-b-2 border-[var(--border)] pb-2">Key Impact</h3>
-                        <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover:text-[var(--accent-yellow)]/80 transition-colors">
+                        <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover:text-[var(--hover-accent)]/80 transition-colors">
                           {project.impact}
                         </p>
                       </div>
@@ -500,7 +500,7 @@ export default function ProjectPage() {
                     </div>
                   </div>
                   <div className="p-10 transition-colors duration-300">
-                    <p className="text-zinc-500 leading-relaxed text-xl font-medium group-hover:text-[var(--accent-yellow)] transition-colors">
+                    <p className="text-zinc-500 leading-relaxed text-xl font-medium group-hover:text-[var(--hover-accent)] transition-colors">
                       {project.challenge}
                     </p>
                   </div>
@@ -524,7 +524,7 @@ export default function ProjectPage() {
                       {project.approachImages && project.approachImages.length > 0 && (
                         <button 
                           onClick={() => setActiveApproachImageIdx(0)}
-                          className="p-3 bg-[var(--card-bg)] border-2 border-[var(--border)] hover:border-[var(--accent-yellow)] hover:text-[var(--accent-yellow)] transition-all shadow-[4px_4px_0px_0px_var(--border)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+                          className="p-3 bg-[var(--card-bg)] border-2 border-[var(--border)] hover:border-[var(--hover-accent)] hover:text-[var(--hover-accent)] transition-all shadow-[4px_4px_0px_0px_var(--border)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
                           title="View Approach Media"
                         >
                           <ArrowRight className="w-6 h-6" />
@@ -533,7 +533,7 @@ export default function ProjectPage() {
                     </div>
                   </div>
                   <div className="p-10 transition-colors duration-300">
-                    <p className="text-zinc-500 leading-relaxed text-xl font-medium group-hover:text-[var(--accent-yellow)] transition-colors">
+                    <p className="text-zinc-500 leading-relaxed text-xl font-medium group-hover:text-[var(--hover-accent)] transition-colors">
                       {project.approach}
                     </p>
                   </div>
@@ -557,7 +557,7 @@ export default function ProjectPage() {
                         {project.approachImages.length > 1 && (
                           <button 
                             onClick={() => setActiveApproachImageIdx((activeApproachImageIdx + 1) % project.approachImages!.length)}
-                            className="absolute bottom-4 right-4 z-30 p-2 bg-[var(--card-bg)]/80 backdrop-blur-md border-2 border-[var(--border)] hover:text-[var(--accent-yellow)] transition-colors shadow-[4px_4px_0px_0px_var(--border)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+                            className="absolute bottom-4 right-4 z-30 p-2 bg-[var(--card-bg)]/80 backdrop-blur-md border-2 border-[var(--border)] hover:text-[var(--hover-accent)] transition-colors shadow-[4px_4px_0px_0px_var(--border)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
                           >
                             <ArrowRight className="w-5 h-5" />
                           </button>
@@ -594,7 +594,7 @@ export default function ProjectPage() {
                       {project.impactImages && project.impactImages.length > 0 && (
                         <button 
                           onClick={() => setActiveImpactImageIdx(0)}
-                          className="p-3 bg-[var(--card-bg)] border-2 border-[var(--border)] hover:border-[var(--accent-yellow)] hover:text-[var(--accent-yellow)] transition-all shadow-[4px_4px_0px_0px_var(--border)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+                          className="p-3 bg-[var(--card-bg)] border-2 border-[var(--border)] hover:border-[var(--hover-accent)] hover:text-[var(--hover-accent)] transition-all shadow-[4px_4px_0px_0px_var(--border)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
                           title="View Impact Media"
                         >
                           <ArrowRight className="w-6 h-6" />
@@ -603,7 +603,7 @@ export default function ProjectPage() {
                     </div>
                   </div>
                   <div className="p-10 transition-colors duration-300">
-                    <p className="text-zinc-500 leading-relaxed text-xl font-medium group-hover:text-[var(--accent-yellow)] transition-colors">
+                    <p className="text-zinc-500 leading-relaxed text-xl font-medium group-hover:text-[var(--hover-accent)] transition-colors">
                       {project.impact}
                     </p>
                   </div>
@@ -627,7 +627,7 @@ export default function ProjectPage() {
                         {project.impactImages.length > 1 && (
                           <button 
                             onClick={() => setActiveImpactImageIdx((activeImpactImageIdx + 1) % project.impactImages!.length)}
-                            className="absolute bottom-4 right-4 z-30 p-2 bg-[var(--card-bg)]/80 backdrop-blur-md border-2 border-[var(--border)] hover:text-[var(--accent-yellow)] transition-colors shadow-[4px_4px_0px_0px_var(--border)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+                            className="absolute bottom-4 right-4 z-30 p-2 bg-[var(--card-bg)]/80 backdrop-blur-md border-2 border-[var(--border)] hover:text-[var(--hover-accent)] transition-colors shadow-[4px_4px_0px_0px_var(--border)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
                           >
                             <ArrowRight className="w-5 h-5" />
                           </button>
@@ -660,11 +660,11 @@ export default function ProjectPage() {
                     className="py-12 flex flex-col items-start"
                   >
                     <div className="flex items-center gap-6 mb-4">
-                      <div className="h-1 w-12 md:w-20 bg-[var(--accent-yellow)]" />
+                      <div className="h-1 w-12 md:w-20 bg-[var(--hover-accent)]" />
                       <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-[var(--fg)]">
                         A Deeper Dive
                       </h2>
-                      <div className="h-1 w-12 md:w-20 bg-[var(--accent-yellow)]" />
+                      <div className="h-1 w-12 md:w-20 bg-[var(--hover-accent)]" />
                     </div>
                     <div className="flex gap-3">
                       {[...Array(5)].map((_, i) => (
@@ -684,7 +684,7 @@ export default function ProjectPage() {
                     <div className="p-10 bg-[var(--card-bg)] border-b-2 border-[var(--border)] transition-colors">
                       <div className="flex items-center gap-4">
                         <div className="p-3 bg-[var(--card-bg)] border-2 border-[var(--border)] shadow-[4px_4px_0px_0px_var(--border)]">
-                          <Zap className="w-6 h-6 text-[var(--accent-yellow)]" />
+                          <Zap className="w-6 h-6 text-[var(--hover-accent)]" />
                         </div>
                         <h2 className="text-2xl font-black uppercase tracking-tight transition-colors">Project Demonstration</h2>
                       </div>
@@ -736,7 +736,7 @@ export default function ProjectPage() {
                       <div className="p-10 transition-colors duration-300">
                         <div className={section.fsmSteps ? "grid grid-cols-1 gap-12" : ""}>
                           <div>
-                            <p className="text-zinc-500 leading-relaxed text-xl font-medium group-hover:text-[var(--accent-yellow)] transition-colors mb-8">
+                            <p className="text-zinc-500 leading-relaxed text-xl font-medium group-hover:text-[var(--hover-accent)] transition-colors mb-8">
                               {section.content}
                             </p>
 
@@ -746,14 +746,14 @@ export default function ProjectPage() {
                                   {[
                                     { label: 'What', value: section.overview.what, color: 'var(--accent-blue)' },
                                     { label: 'Why', value: section.overview.why, color: 'var(--accent-red)' },
-                                    { label: 'How', value: section.overview.how, color: 'var(--accent-yellow)' },
+                                    { label: 'How', value: section.overview.how, color: 'var(--hover-accent)' },
                                     { label: 'Outcome', value: section.overview.outcome, color: 'var(--accent-green)' }
                                   ].map((item) => (
-                                  <div key={item.label} className="card-mechanical p-8 bg-[var(--card-bg)] border-2 border-[var(--border)] group/item hover:border-[var(--accent-yellow)] transition-all">
+                                  <div key={item.label} className="card-mechanical p-8 bg-[var(--card-bg)] border-2 border-[var(--border)] group/item hover:border-[var(--hover-accent)] transition-all">
                                     <h4 className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: item.color }}>
                                       {item.label}
                                     </h4>
-                                    <p className="text-base font-bold text-zinc-500 leading-relaxed group-hover/item:text-[var(--accent-yellow)] transition-colors">
+                                    <p className="text-base font-bold text-zinc-500 leading-relaxed group-hover/item:text-[var(--hover-accent)] transition-colors">
                                       {item.value}
                                     </p>
                                   </div>
@@ -765,7 +765,7 @@ export default function ProjectPage() {
                                     <h4 className="text-lg font-black uppercase tracking-tight text-[var(--fg)] mb-3 transition-colors">
                                       The Problem
                                     </h4>
-                                    <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover/prob:text-[var(--accent-yellow)] transition-colors">
+                                    <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover/prob:text-[var(--hover-accent)] transition-colors">
                                       {section.overview.problem}
                                     </p>
                                   </div>
@@ -773,7 +773,7 @@ export default function ProjectPage() {
                                     <h4 className="text-lg font-black uppercase tracking-tight text-[var(--fg)] mb-3 transition-colors">
                                       The Constraints
                                     </h4>
-                                    <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover/const:text-[var(--accent-yellow)] transition-colors">
+                                    <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover/const:text-[var(--hover-accent)] transition-colors">
                                       {section.overview.constraints}
                                     </p>
                                   </div>
@@ -784,7 +784,7 @@ export default function ProjectPage() {
                             {section.cards && (
                               <div className="grid grid-cols-1 gap-4 mb-12">
                                 {section.cards.map((card, cIdx) => (
-                                  <div key={cIdx} className="card-mechanical p-6 bg-[var(--card-bg)] border-2 border-[var(--border)] group/card hover:border-[var(--accent-yellow)] transition-all">
+                                  <div key={cIdx} className="card-mechanical p-6 bg-[var(--card-bg)] border-2 border-[var(--border)] group/card hover:border-[var(--hover-accent)] transition-all">
                                     <div className="flex justify-between items-start mb-4">
                                       <h4 className="text-sm font-black uppercase tracking-tight text-[var(--fg)] transition-colors">
                                         {card.title}
@@ -795,7 +795,7 @@ export default function ProjectPage() {
                                         </Badge>
                                       )}
                                     </div>
-                                    <p className="text-xs text-zinc-500 font-medium leading-relaxed group-hover/card:text-[var(--accent-yellow)]/80 transition-colors">
+                                    <p className="text-xs text-zinc-500 font-medium leading-relaxed group-hover/card:text-[var(--hover-accent)]/80 transition-colors">
                                       {card.description}
                                     </p>
                                   </div>
@@ -804,7 +804,7 @@ export default function ProjectPage() {
                             )}
 
                             {section.highlight && (
-                              <div className={`mb-12 p-6 border-l-8 border-2 bg-[var(--card-bg)] card-mechanical group/highlight transition-all hover:border-[var(--accent-yellow)] ${
+                              <div className={`mb-12 p-6 border-l-8 border-2 bg-[var(--card-bg)] card-mechanical group/highlight transition-all hover:border-[var(--hover-accent)] ${
                                 section.highlight.type === 'success' ? 'border-l-[var(--accent-green)] border-[var(--border)]' :
                                 section.highlight.type === 'warning' ? 'border-l-[var(--accent-red)] border-[var(--border)]' :
                                 'border-l-[var(--accent-blue)] border-[var(--border)]'
@@ -812,7 +812,7 @@ export default function ProjectPage() {
                                 <h4 className="text-xs font-black uppercase tracking-widest mb-2 text-[var(--fg)] transition-colors">
                                   {section.highlight.title}
                                 </h4>
-                                <p className="text-lg font-bold text-zinc-500 leading-tight transition-colors group-hover/highlight:text-[var(--accent-yellow)]">
+                                <p className="text-lg font-bold text-zinc-500 leading-tight transition-colors group-hover/highlight:text-[var(--hover-accent)]">
                                   {section.highlight.content}
                                 </p>
                               </div>
@@ -839,7 +839,7 @@ export default function ProjectPage() {
                               />
                             </div>
                             {section.caption && (
-                              <p className="text-sm font-mono font-bold text-zinc-500 uppercase tracking-widest group-hover:text-[var(--accent-yellow)] transition-colors">
+                              <p className="text-sm font-mono font-bold text-zinc-500 uppercase tracking-widest group-hover:text-[var(--hover-accent)] transition-colors">
                                 // {section.caption}
                               </p>
                             )}
@@ -870,7 +870,7 @@ export default function ProjectPage() {
                           <h3 className="text-lg font-black uppercase tracking-tight text-[var(--fg)] border-b-2 border-[var(--border)] pb-2">
                             {section.title}
                           </h3>
-                          <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover:text-[var(--accent-yellow)] transition-colors">
+                          <p className="text-sm text-zinc-500 font-medium leading-relaxed group-hover:text-[var(--hover-accent)] transition-colors">
                             {section.content}
                           </p>
                         </div>
@@ -893,7 +893,7 @@ export default function ProjectPage() {
                   <h4 className="text-xs font-black text-[var(--fg)] mb-4 uppercase transition-colors">Core Competencies</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map(tag => (
-                      <Badge key={tag} className="bg-white text-zinc-900 border-2 border-zinc-900 text-[10px] font-black uppercase group-hover:bg-[var(--accent-yellow)] group-hover:text-black transition-colors">
+                      <Badge key={tag} className="bg-white text-zinc-900 border-2 border-zinc-900 text-[10px] font-black uppercase group-hover:bg-[var(--hover-accent)] group-hover:text-black transition-colors">
                         {tag}
                       </Badge>
                     ))}
@@ -902,7 +902,7 @@ export default function ProjectPage() {
                 <Separator className="bg-zinc-900/10" />
                 <div>
                   <h4 className="text-xs font-black text-[var(--fg)] mb-4 uppercase transition-colors">Documentation</h4>
-                  <p className="text-xs text-[var(--fg)] leading-relaxed font-bold mb-6 transition-colors group-hover:text-[var(--accent-yellow)]">
+                  <p className="text-xs text-[var(--fg)] leading-relaxed font-bold mb-6 transition-colors group-hover:text-[var(--hover-accent)]">
                     Full technical reports, CAD models, and FEA simulations available upon request.
                   </p>
                   {project.posterUrl && (
