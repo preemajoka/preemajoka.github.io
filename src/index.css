@@ -107,8 +107,8 @@
   @apply h-full transition-all duration-1000 ease-out relative;
   background: repeating-linear-gradient(
     90deg,
-    var(--accent-yellow),
-    var(--accent-yellow) 20px,
+    var(--hover-accent),
+    var(--hover-accent) 20px,
     rgba(0,0,0,0.2) 20px,
     rgba(0,0,0,0.2) 40px
   );
