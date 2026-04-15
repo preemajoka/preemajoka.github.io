@@ -188,17 +188,36 @@ export default function LandingPage() {
           <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-[var(--fg)] mb-6 uppercase">
             Preeyansh <span className="text-[var(--accent-blue)]">Arora Majoka</span>
           </h1>
-          <p className="text-2xl text-zinc-500 font-medium max-w-2xl mx-auto leading-tight">
+          <p className="text-2xl text-zinc-500 font-medium max-w-2xl mx-auto leading-tight relative top-2">
             Manufacturing Engineer & Mechatronics Enthusiast. <br /> 
             Chief Idea Stacker & Builder, One Pixel at a Time.
           </p>
         </motion.div>
         
-        {/* Pacman Dots */}
-        <div className="hidden md:block absolute bottom-0 left-0 w-full h-1 pointer-events-none">
-          <div className="pacman-dot" style={{ animationDelay: '0s' }} />
-          <div className="pacman-dot" style={{ animationDelay: '0.5s' }} />
-          <div className="pacman-dot" style={{ animationDelay: '1s' }} />
+        {/* Pacman Animation */}
+        <div className="pacman-container hidden md:block">
+          {/* Food dots */}
+          <div className="pacman-food-container-inner">
+            {[...Array(15)].map((_, i) => (
+              <div 
+                key={i} 
+                className="pacman-food" 
+                style={{ left: `${(i + 1) * 6.25}%` }} 
+              />
+            ))}
+          </div>
+          
+          <div className="pacman" style={{ animationDelay: '0s' }} />
+          <div className="ghost ghost-cyan" style={{ animationDelay: '0.6s' }}>
+            <div className="ghost-pupil ghost-pupil-left" />
+            <div className="ghost-pupil ghost-pupil-right" />
+            <div className="ghost-legs text-[#00FFFF]" />
+          </div>
+          <div className="ghost ghost-orange" style={{ animationDelay: '1.2s' }}>
+            <div className="ghost-pupil ghost-pupil-left" />
+            <div className="ghost-pupil ghost-pupil-right" />
+            <div className="ghost-legs text-[#FFB852]" />
+          </div>
         </div>
       </motion.section>
 
