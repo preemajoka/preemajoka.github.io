@@ -1,13 +1,14 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=VT323&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 @theme {
   --font-sans: "VT323", monospace;
   --font-arcade: "Bungee", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  
-  /* shadcn theme variables */
+
+  /* shadcn theme variables mapping */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -34,7 +35,7 @@
 
 @layer base {
   :root {
-    /* Mechanical Theme Variables */
+    /* Mechanical Theme Variables - HEX for precision */
     --bg: #f4f4f5;
     --fg: #09090b;
     --card-bg: #ffffff;
@@ -46,7 +47,7 @@
     --pixel-dot: #d4d4d8;
     --hover-accent: var(--accent-yellow);
 
-    /* shadcn Variables */
+    /* shadcn Variables (HSL for compatibility) */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -63,7 +64,6 @@
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
@@ -99,7 +99,6 @@
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
@@ -111,6 +110,10 @@
 
   .dark .dynamic-theme-container {
     --hover-accent: var(--accent-yellow);
+  }
+
+  * {
+    border-color: var(--border);
   }
 
   body {
@@ -132,7 +135,7 @@
   }
 }
 
-/* Custom Cursor */
+/* Custom Pixel Cursor */
 #custom-cursor {
   width: 20px;
   height: 20px;
@@ -176,6 +179,18 @@
   @apply inline-flex items-center justify-center px-6 py-3 border-4 border-[var(--border)] font-black uppercase tracking-wider transition-all duration-200 shadow-[6px_6px_0px_0px_var(--border)] active:shadow-none active:translate-x-1 active:translate-y-1 bg-[var(--card-bg)];
 }
 
+/* Theme-specific Lego Blocks */
+.lego-red { 
+  @apply bg-[var(--accent-red)] text-white;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2), 6px 6px 0px 0px var(--border);
+}
+.lego-red:active {
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+.lego-blue { @apply bg-[var(--accent-blue)] text-white; }
+.lego-yellow { @apply bg-[var(--accent-yellow)] text-black; }
+.lego-green { @apply bg-[var(--accent-green)] text-white; }
+
 /* Progress Bar */
 .progress-bar-container {
   @apply w-full h-6 bg-zinc-800 border-4 border-[var(--border)] overflow-hidden relative;
@@ -192,7 +207,26 @@
   );
 }
 
-/* Animations */
+/* Pacman Dot Animation */
+.pacman-dot {
+  @apply absolute w-2 h-2 bg-[var(--fg)] top-1/2 -translate-y-1/2;
+  animation: eat-dot 2s linear infinite;
+}
+
+@keyframes eat-dot {
+  from { right: -20px; }
+  to { right: 100%; }
+}
+
+@keyframes bounce-x {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+.animate-bounce-x {
+  animation: bounce-x 1s infinite;
+}
+
 @keyframes spin-slow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
