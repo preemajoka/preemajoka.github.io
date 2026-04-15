@@ -1,5 +1,6 @@
 import { projects } from '@/projectsData';
 import ProjectCard from '@/components/ProjectCard';
+import { MarioJumper } from '@/components/MarioJumper';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { ArrowUpDown, Calendar } from 'lucide-react';
@@ -14,11 +15,12 @@ export default function ProjectsListPage() {
   });
 
   return (
-    <div className="dynamic-theme-container">
+    <div className="dynamic-theme-container relative">
+      <MarioJumper cardCount={sortedProjects.length} />
       <div className="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
       <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
         <div className="text-center md:text-left">
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-[var(--fg)] mb-6 uppercase">
+          <h1 id="mario-header" className="text-5xl md:text-7xl font-black tracking-tighter text-[var(--fg)] mb-6 uppercase">
             Engineering <span className="text-[var(--accent-green)]">Portfolio</span>
           </h1>
           <p className="text-2xl text-zinc-500 font-medium max-w-2xl leading-tight">
@@ -28,11 +30,12 @@ export default function ProjectsListPage() {
 
         {/* Sorting Controls */}
         <div className="flex items-center justify-center md:justify-end gap-4">
-          <div className="flex items-center gap-2 px-4 py-2 bg-[var(--card-bg)] border-2 border-[var(--border)] shadow-[4px_4px_0px_0px_var(--border)]">
+          <div id="mario-sort-date" className="flex items-center gap-2 px-4 py-2 bg-[var(--card-bg)] border-2 border-[var(--border)] shadow-[4px_4px_0px_0px_var(--border)]">
             <Calendar className="w-4 h-4 text-[var(--accent-green)]" />
             <span className="text-xs font-black uppercase tracking-widest">Sort by Date</span>
           </div>
           <button 
+            id="mario-sort-order"
             onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
             className="btn-mechanical !py-2 !px-4 flex items-center gap-2 group"
           >
