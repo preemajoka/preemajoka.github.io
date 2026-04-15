@@ -16,7 +16,8 @@ import { motion } from 'motion/react';
 
 export default function ProfilePage() {
   return (
-    <div className="max-w-5xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+    <div className="dynamic-theme-container">
+      <div className="max-w-5xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
       {/* Resume Header */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
@@ -52,7 +53,7 @@ export default function ProfilePage() {
               download 
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-mechanical !bg-[var(--accent-yellow)] !text-[var(--fg)] flex items-center gap-3 group"
+              className="btn-mechanical !bg-[var(--hover-accent)] !text-[var(--fg)] flex items-center gap-3 group"
             >
               <FileText className="w-5 h-5 transition-transform group-hover:scale-110" />
               Mechanical Design Portfolio (PDF)
@@ -93,19 +94,19 @@ export default function ProfilePage() {
                           {exp.company}
                         </div>
                       </div>
-                      <span className="text-sm font-mono font-bold text-zinc-500 bg-[var(--pixel-dot)] border-2 border-[var(--border)] px-3 py-1 uppercase tracking-tighter shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)] group-hover:text-[var(--accent-yellow)] transition-colors">
+                      <span className="text-sm font-mono font-bold text-zinc-500 bg-[var(--pixel-dot)] border-2 border-[var(--border)] px-3 py-1 uppercase tracking-tighter shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)] group-hover:text-[var(--hover-accent)] transition-colors">
                         {exp.date}
                       </span>
                     </div>
-                    <div className="text-zinc-500 font-bold mt-4 flex items-center gap-2 text-sm uppercase group-hover:text-[var(--accent-yellow)] transition-colors">
+                    <div className="text-zinc-500 font-bold mt-4 flex items-center gap-2 text-sm uppercase group-hover:text-[var(--hover-accent)] transition-colors">
                       <MapPin className="w-4 h-4" /> {exp.location}
                     </div>
                   </div>
                   <div className="p-8 transition-colors duration-300">
                     <ul className="space-y-4">
                       {exp.highlights.map((h, i) => (
-                        <li key={i} className="text-zinc-400 text-base leading-relaxed flex items-start transition-colors group-hover:text-[var(--accent-yellow)]">
-                          <span className="mr-4 mt-2 w-2 h-2 bg-[var(--fg)] flex-shrink-0 transition-colors group-hover:bg-[var(--accent-yellow)]" />
+                        <li key={i} className="text-zinc-400 text-base leading-relaxed flex items-start transition-colors group-hover:text-[var(--hover-accent)]">
+                          <span className="mr-4 mt-2 w-2 h-2 bg-[var(--fg)] flex-shrink-0 transition-colors group-hover:bg-[var(--hover-accent)]" />
                           {h}
                         </li>
                       ))}
@@ -139,7 +140,7 @@ export default function ProfilePage() {
                         <h3 className="text-xl font-black text-[var(--fg)] uppercase tracking-tight">{proj.role}</h3>
                         <div className="text-[var(--accent-red)] font-bold text-lg mt-1">{proj.name}</div>
                       </div>
-                      <span className="text-sm font-mono font-bold text-zinc-500 bg-[var(--pixel-dot)] border-2 border-[var(--border)] px-3 py-1 uppercase tracking-tighter shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)] group-hover:text-[var(--accent-yellow)] transition-colors">
+                      <span className="text-sm font-mono font-bold text-zinc-500 bg-[var(--pixel-dot)] border-2 border-[var(--border)] px-3 py-1 uppercase tracking-tighter shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)] group-hover:text-[var(--hover-accent)] transition-colors">
                         {proj.date}
                       </span>
                     </div>
@@ -147,8 +148,8 @@ export default function ProfilePage() {
                   <div className="p-8 transition-colors duration-300">
                     <ul className="space-y-4">
                       {proj.highlights.map((h, i) => (
-                        <li key={i} className="text-zinc-400 text-base leading-relaxed flex items-start transition-colors group-hover:text-[var(--accent-yellow)]">
-                          <span className="mr-4 mt-2 w-2 h-2 bg-[var(--fg)] flex-shrink-0 transition-colors group-hover:bg-[var(--accent-yellow)]" />
+                        <li key={i} className="text-zinc-400 text-base leading-relaxed flex items-start transition-colors group-hover:text-[var(--hover-accent)]">
+                          <span className="mr-4 mt-2 w-2 h-2 bg-[var(--fg)] flex-shrink-0 transition-colors group-hover:bg-[var(--hover-accent)]" />
                           {h}
                         </li>
                       ))}
@@ -168,21 +169,21 @@ export default function ProfilePage() {
               <h2 className="text-lg font-black uppercase tracking-widest border-b-2 border-[var(--border)] pb-2">Education</h2>
               <div className="mt-6">
                 <h3 className="font-black text-[var(--fg)] text-xl uppercase leading-tight">{resumeData.education.school}</h3>
-                <p className="text-zinc-500 font-bold mt-2 group-hover:text-[var(--accent-yellow)] transition-colors">{resumeData.education.degree}</p>
-                <p className="text-sm font-mono font-bold text-zinc-500 mt-2 bg-[var(--pixel-dot)] inline-block px-2 py-1 border border-[var(--border)] group-hover:text-[var(--accent-yellow)] transition-colors">
+                <p className="text-zinc-500 font-bold mt-2 group-hover:text-[var(--hover-accent)] transition-colors">{resumeData.education.degree}</p>
+                <p className="text-sm font-mono font-bold text-zinc-500 mt-2 bg-[var(--pixel-dot)] inline-block px-2 py-1 border border-[var(--border)] group-hover:text-[var(--hover-accent)] transition-colors">
                   {resumeData.education.date}
                 </p>
               </div>
             </div>
             <div className="p-8 transition-colors duration-300">
-              <p className="text-sm text-zinc-500 italic leading-relaxed font-medium transition-colors group-hover:text-[var(--accent-yellow)]">
+              <p className="text-sm text-zinc-500 italic leading-relaxed font-medium transition-colors group-hover:text-[var(--hover-accent)]">
                 {resumeData.education.honors}
               </p>
               <div className="pt-4">
                 <h4 className="text-xs font-black uppercase text-[var(--fg)] mb-3 transition-colors">Key Coursework</h4>
                 <div className="flex flex-wrap gap-2">
                   {resumeData.education.courses.map(course => (
-                    <Badge key={course} className="bg-white text-zinc-900 border-2 border-[var(--border)] font-bold text-[10px] uppercase group-hover:bg-[var(--accent-yellow)] group-hover:text-black transition-colors">
+                    <Badge key={course} className="bg-white text-zinc-900 border-2 border-[var(--border)] font-bold text-[10px] uppercase group-hover:bg-[var(--hover-accent)] group-hover:text-black transition-colors">
                       {course}
                     </Badge>
                   ))}
@@ -200,7 +201,7 @@ export default function ProfilePage() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {resumeData.skills.mechanical.map(skill => (
-                  <Badge key={skill} className="bg-[var(--fg)] text-[var(--bg)] text-[10px] py-1 px-3 uppercase font-bold group-hover:bg-[var(--accent-yellow)] group-hover:text-black transition-colors">
+                  <Badge key={skill} className="bg-[var(--fg)] text-[var(--bg)] text-[10px] py-1 px-3 uppercase font-bold group-hover:bg-[var(--hover-accent)] group-hover:text-black transition-colors">
                     {skill}
                   </Badge>
                 ))}
@@ -214,7 +215,7 @@ export default function ProfilePage() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {resumeData.skills.manufacturing.map(skill => (
-                  <Badge key={skill} className="bg-[var(--card-bg)] text-[var(--fg)] border-2 border-[var(--border)] text-[10px] py-1 px-3 uppercase font-bold group-hover:bg-[var(--accent-yellow)] group-hover:text-black transition-colors">
+                  <Badge key={skill} className="bg-[var(--card-bg)] text-[var(--fg)] border-2 border-[var(--border)] text-[10px] py-1 px-3 uppercase font-bold group-hover:bg-[var(--hover-accent)] group-hover:text-black transition-colors">
                     {skill}
                   </Badge>
                 ))}
@@ -228,7 +229,7 @@ export default function ProfilePage() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {resumeData.skills.softwareHardware.map(skill => (
-                  <Badge key={skill} className="bg-[var(--pixel-dot)] text-zinc-500 border-2 border-[var(--border)] text-[10px] py-1 px-3 uppercase font-bold group-hover:bg-[var(--accent-yellow)] group-hover:text-black transition-colors">
+                  <Badge key={skill} className="bg-[var(--pixel-dot)] text-zinc-500 border-2 border-[var(--border)] text-[10px] py-1 px-3 uppercase font-bold group-hover:bg-[var(--hover-accent)] group-hover:text-black transition-colors">
                     {skill}
                   </Badge>
                 ))}
@@ -236,6 +237,7 @@ export default function ProfilePage() {
             </div>
           </section>
         </div>
+      </div>
       </div>
     </div>
   );
