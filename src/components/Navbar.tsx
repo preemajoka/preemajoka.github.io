@@ -54,7 +54,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
             <div className="flex items-center space-x-4 border-l-2 border-[var(--pixel-dot)] ml-6 pl-6">
               <button 
                 onClick={toggleTheme}
-                className="p-2 text-zinc-500 hover:text-[var(--accent-yellow)] transition-colors"
+                className="p-2 text-zinc-500 hover:text-[var(--hover-accent-)] transition-colors"
               >
                 {isDark ? <Sun size={20} /> : <Moon size={20} />}
               </button>
