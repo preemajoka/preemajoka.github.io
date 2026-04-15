@@ -70,7 +70,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <CardHeader className="p-6 bg-[var(--card-bg)] border-b-2 border-[var(--border)] transition-colors">
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.slice(0, 3).map(tag => (
-                  <Badge key={tag} className="bg-[var(--pixel-dot)] text-[var(--fg)] border-2 border-[var(--border)] font-black text-[10px] uppercase tracking-wider group-hover:bg-[var(--accent-yellow)] group-hover:text-black transition-colors">
+                  <Badge key={tag} className="bg-[var(--pixel-dot)] text-[var(--fg)] border-2 border-[var(--border)] font-black text-[10px] uppercase tracking-wider group-hover:bg-[var(--hover-accent)] group-hover:text-black transition-colors">
                     {tag}
                   </Badge>
                 ))}
@@ -78,15 +78,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               <CardTitle className="text-xl font-black leading-tight text-[var(--fg)] uppercase tracking-tight">{project.title}</CardTitle>
             </CardHeader>
             <CardContent className="p-6 flex-grow">
-              <CardDescription className="text-zinc-500 group-hover:text-[var(--accent-yellow)] line-clamp-2 font-medium transition-colors">
+              <CardDescription className="text-zinc-500 group-hover:text-[var(--hover-accent)] line-clamp-2 font-medium transition-colors">
                 {project.subtitle}
               </CardDescription>
             </CardContent>
             <CardFooter className="p-6 pt-0 mt-auto">
               <div className="w-full">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500 group-hover:text-[var(--accent-yellow)] transition-colors">Completion</span>
-                  <span className="text-[10px] font-black text-[var(--fg)] group-hover:text-[var(--accent-yellow)] transition-colors">{project.progress}%</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500 group-hover:text-[var(--hover-accent)] transition-colors">Completion</span>
+                  <span className="text-[10px] font-black text-[var(--fg)] group-hover:text-[var(--hover-accent)] transition-colors">{project.progress}%</span>
                 </div>
                 <div className="progress-bar-container">
                   <motion.div 
@@ -95,7 +95,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                     className="progress-bar-fill"
                   />
                 </div>
-                <div className="flex items-center text-sm font-black text-[var(--fg)] group-hover:text-[var(--accent-yellow)] mt-6 uppercase tracking-widest transition-colors">
+                <div className="flex items-center text-sm font-black text-[var(--fg)] group-hover:text-[var(--hover-accent)] mt-6 uppercase tracking-widest transition-colors">
                   View Specs
                   <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
