@@ -18,6 +18,8 @@
     --accent-yellow: #ffcc00;
     --accent-green: #00cc44;
     --pixel-dot: #d4d4d8;
+    /*Default for Home Page */
+    --hover-accent: var(--accent-yellow);
   }
 
   .dark {
@@ -30,15 +32,26 @@
     --accent-yellow: #ffee00;
     --accent-green: #44ff88;
     --pixel-dot: #27272a;
+    /*Default for Home Page in Dark Mode */
+    --hover-accent: var(--accent-yellow);
   }
 
+  /* Handling switch for Profile/Projects */
+  .dynamic-theme-container {
+    --hover-accent: var(--accent-red);
+  }
+
+  .dark .dynamic-theme-container {
+    --hover-accent: var(--accent-yellow);
+  }
+}
   body {
     @apply bg-[var(--bg)] text-[var(--fg)] antialiased transition-colors duration-300;
     font-family: "VT323", monospace !important;
     font-size: 1.25rem;
     background-image: radial-gradient(var(--pixel-dot) 2px, transparent 2px);
     background-size: 32px 32px;
-    cursor: none; /* Hide default cursor */
+    cursor: none;
   }
 
   h1, h2, h3, h4, h5, h6, .section-title, .font-arcade {
@@ -51,7 +64,7 @@
   }
 }
 
-/* Custom Pixel Cursor */
+
 #custom-cursor {
   width: 20px;
   height: 20px;
