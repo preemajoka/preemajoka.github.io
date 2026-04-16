@@ -8,7 +8,8 @@ export default function CustomCursor() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
-  const springConfig = { damping: 25, stiffness: 250 };
+  // High stiffness and damping for a very snappy, low-lag feel
+  const springConfig = { damping: 40, stiffness: 800, restDelta: 0.001 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
   
@@ -18,8 +19,8 @@ export default function CustomCursor() {
     const moveCursor = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      // Rotate gear based on movement
-      rotation.set(rotation.get() + Math.abs(e.movementX) + Math.abs(e.movementY));
+      // Rotate gear based on movement - use a multiplier for more noticeable rotation
+      rotation.set(rotation.get() + (Math.abs(e.movementX) + Math.abs(e.movementY)) * 0.5);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -64,6 +65,7 @@ export default function CustomCursor() {
         translateY: '-50%',
         pointerEvents: 'none',
         zIndex: 9999,
+        willChange: 'transform',
       }}
     >
       <motion.svg
