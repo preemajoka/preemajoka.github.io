@@ -135,24 +135,6 @@
   }
 }
 
-/* Custom Pixel Cursor */
-#custom-cursor {
-  width: 20px;
-  height: 20px;
-  background: var(--accent-yellow);
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  border: 2px solid var(--border);
-  transition: transform 0.1s ease-out;
-}
-
-.cursor-hover {
-  transform: scale(1.5) rotate(45deg);
-  background: var(--accent-blue) !important;
-}
-
 /* UI Components */
 .glass-nav {
   @apply sticky top-0 z-50 w-full border-b-4 border-[var(--border)] bg-[var(--bg)]/90 backdrop-blur-md;
